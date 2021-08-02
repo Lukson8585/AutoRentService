@@ -23,16 +23,17 @@ When('I searching for only Skoda Octavia in France,Paris', () => {
     detailsPage.getCityDropBox().select(setCity).should('have.value', '4')
     searchPage.getInputModel().type(carModel)
     // only dates are obligatory for saerching car
+    
     detailsPage.getPickupDate().type(picupDate) // there is a issue about date format on UI is dd.mm.rrrr/ but input format validation is rrrr.mm.dd
     detailsPage.getPickupDate().should('have.value', picupDate)
     detailsPage.getDropOffDate().type(dropOffDate)
     detailsPage.getDropOffDate().should('have.value', dropOffDate)
-
 })
+
 And('I click search button', () => {
     detailsPage.getSearchButton().click()
-
 })
+
 Then('I check search results for one model of car', () => {
 
     // Validation of results of searching for Skoda Octavia
@@ -44,7 +45,4 @@ Then('I check search results for one model of car', () => {
             
         }
     })
-   
-  
-
 })
